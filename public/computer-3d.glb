@@ -1,0 +1,67 @@
+<html>
+<head>
+<title>BIG-IP Per Request Policy Resource blocked page</title>
+<style>
+body, html {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+table, td, th, div {
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+body, table, td, th, div, input, h1, h2, h3, h4, h5, h6 {
+    font-family : Calibri, Tahoma, Verdana, Arial, Helvetica, Sans-Serif;
+    color: #000000;
+    text-align: center;
+}
+body, table, td, th, div, input {
+    font-size : 14px;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-size : 18px;
+    text-decoration: none;
+    margin-bottom: 0px;
+}
+body
+{
+    background-color: #FFFFFF;
+}
+table#page_header
+{
+    width: 100%;
+    height: 80px;
+    background-color: #FFFFFF;
+    background-repeat: repeat-x;
+}
+table#main_table
+{
+    width:100%;
+}
+</style>
+</head>
+
+<script language="javascript">
+function OnLoad() {
+    var category = "Information Technology";
+    var categoryDiv = document.getElementById('display_category');
+    if (category === "") {
+        categoryDiv.style.visibility = 'hidden';
+    } else {
+        categoryDiv.style.visibility = 'visible';
+        categoryDiv.innerHTML += '<td>' + "The category reference is:" + ' ' + category + '</td>';
+    }
+}
+</script>
+<body onload="OnLoad();">
+    <table id="page_header">
+        <tr><td style="padding-left:10px;">
+            <h1>Transparent proxy access blocked. Your system is not using the on-site explicit proxy or the Zscaler cloud. Please verify the proxy settings on your system are correct. Contact CCHD if you need assistance.</h1>        </td></tr>
+    </table>
+    <table id='main_table'>
+        <tr id='display_category'></tr>
+    </table>
+</body>
+</html>
