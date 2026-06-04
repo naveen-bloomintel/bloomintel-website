@@ -1,124 +1,67 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
+import { Resend } from 'resend'
 
-// Validation schema
-const consultationSchema = z.object({
-  name: z.string().min(1, 'Name is required').max(100, 'Name too long'),
-  email: z.string().email('Invalid email address'),
-  company: z.string().min(1, 'Company name is required').max(100, 'Company name too long'),
-  phone: z.string().optional().refine(
-    (val) => !val || /^[\+]?[1-9][\d]{0,15}$/.test(val.replace(/\s/g, '')),
-    'Invalid phone number'
-  ),
-  message: z.string().max(1000, 'Message too long').optional(),
+const schema = z.object({
+  name: z.string().min(1).max(100),
+  email: z.string().email(),
+  company: z.string().min(1).max(100),
+  phone: z.string().optional(),
+  message: z.string().max(1000).optional(),
   timestamp: z.string(),
-  source: z.string()
+  source: z.string(),
 })
-
-type ConsultationData = z.infer<typeof consultationSchema>
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    
-    // Validate the request data
-    const validatedData = consultationSchema.parse(body)
-    
-    // Rate limiting check (basic implementation)
-    const clientIP = request.headers.get('x-forwarded-for') || 
-                    request.headers.get('x-real-ip') || 
-                    'unknown'
-    
-    // TODO: Implement proper rate limiting with Redis or similar
-    console.log(`Consultation request from IP: ${clientIP}`)
-    
-    // Process the consultation request
-    const result = await processConsultation(validatedData)
-    
-    if (result.success) {
-      // TODO: Send confirmation email
-      // TODO: Add to CRM system
-      // TODO: Send notification to sales team
-      
-      return NextResponse.json({
-        success: true,
-        message: 'Consultation request submitted successfully',
-        id: result.id
-      }, { status: 200 })
+    const data = schema.parse(body)
+
+    const apiKey = process.env.RESEND_API_KEY
+    if (apiKey) {
+      const resend = new Resend(apiKey)
+      const fromEmail = process.env.FROM_EMAIL ?? 'onboarding@resend.dev'
+      const toEmail = process.env.NOTIFY_EMAIL ?? 'business@bloomintelai.com'
+
+      await resend.emails.send({
+        from: `BloomIntel Website <${fromEmail}>`,
+        to: [toEmail],
+        replyTo: data.email,
+        subject: `Strategy Session Request — ${data.name} at ${data.company}`,
+        html: `
+          <div style="font-family: system-ui, sans-serif; max-width: 600px; margin: 0 auto; color: #18181b;">
+            <div style="background: #09090b; padding: 24px 32px; border-radius: 12px 12px 0 0;">
+              <h1 style="color: #14b8a6; font-size: 18px; margin: 0; font-weight: 600;">New Strategy Session Request</h1>
+            </div>
+            <div style="background: #f4f4f5; padding: 32px; border-radius: 0 0 12px 12px;">
+              <table style="width: 100%; border-collapse: collapse;">
+                <tr><td style="padding: 8px 0; color: #71717a; font-size: 13px; width: 120px;">Name</td><td style="padding: 8px 0; font-weight: 600; font-size: 14px;">${data.name}</td></tr>
+                <tr><td style="padding: 8px 0; color: #71717a; font-size: 13px;">Email</td><td style="padding: 8px 0; font-size: 14px;"><a href="mailto:${data.email}" style="color: #0d9488;">${data.email}</a></td></tr>
+                <tr><td style="padding: 8px 0; color: #71717a; font-size: 13px;">Company</td><td style="padding: 8px 0; font-weight: 600; font-size: 14px;">${data.company}</td></tr>
+                ${data.phone ? `<tr><td style="padding: 8px 0; color: #71717a; font-size: 13px;">Phone</td><td style="padding: 8px 0; font-size: 14px;">${data.phone}</td></tr>` : ''}
+                ${data.message ? `<tr><td colspan="2" style="padding: 16px 0 0;"><div style="background: white; border-radius: 8px; padding: 16px; font-size: 14px; color: #3f3f46; line-height: 1.6;">${data.message}</div></td></tr>` : ''}
+              </table>
+              <p style="margin: 24px 0 0; font-size: 12px; color: #a1a1aa;">Submitted at ${new Date(data.timestamp).toLocaleString('en-US', { timeZone: 'America/Los_Angeles' })} PT via bloomintelai.com</p>
+            </div>
+          </div>
+        `,
+      })
     } else {
-      return NextResponse.json({
-        success: false,
-        message: 'Failed to process consultation request'
-      }, { status: 500 })
+      console.log('[BloomIntel] Consultation form (no RESEND_API_KEY set):', {
+        name: data.name, email: data.email, company: data.company,
+      })
     }
-    
+
+    return NextResponse.json({ success: true }, { status: 200 })
   } catch (error) {
     console.error('Consultation API error:', error)
-    
     if (error instanceof z.ZodError) {
-      return NextResponse.json({
-        success: false,
-        message: 'Validation error',
-        errors: error.errors
-      }, { status: 400 })
+      return NextResponse.json({ success: false, message: 'Validation error' }, { status: 400 })
     }
-    
-    return NextResponse.json({
-      success: false,
-      message: 'Internal server error'
-    }, { status: 500 })
+    return NextResponse.json({ success: false, message: 'Internal server error' }, { status: 500 })
   }
 }
 
-async function processConsultation(data: ConsultationData): Promise<{ success: boolean; id?: string }> {
-  try {
-    // Generate unique ID
-    const id = `consultation_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`
-    
-    // Log the consultation request (in production, save to database)
-    console.log('New consultation request:', {
-      id,
-      ...data,
-      processedAt: new Date().toISOString()
-    })
-    
-    // TODO: Replace with actual database save
-    // await saveToDatabase(data)
-    
-    // TODO: Send email notifications
-    // await sendNotificationEmail(data)
-    
-    // TODO: Add to CRM
-    // await addToCRM(data)
-    
-    // Simulate processing delay
-    await new Promise(resolve => setTimeout(resolve, 500))
-    
-    return { success: true, id }
-  } catch (error) {
-    console.error('Error processing consultation:', error)
-    return { success: false }
-  }
-}
-
-// Handle unsupported methods
 export async function GET() {
-  return NextResponse.json({
-    success: false,
-    message: 'Method not allowed'
-  }, { status: 405 })
+  return NextResponse.json({ message: 'Method not allowed' }, { status: 405 })
 }
-
-export async function PUT() {
-  return NextResponse.json({
-    success: false,
-    message: 'Method not allowed'
-  }, { status: 405 })
-}
-
-export async function DELETE() {
-  return NextResponse.json({
-    success: false,
-    message: 'Method not allowed'
-  }, { status: 405 })
-} 

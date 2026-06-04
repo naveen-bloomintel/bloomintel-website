@@ -1,92 +1,56 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Space_Grotesk } from "next/font/google"
+import { Inter } from "next/font/google"
 import "./globals.css"
 
-const spaceGrotesk = Space_Grotesk({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-space-grotesk",
+  variable: "--font-inter",
   display: "swap",
+  weight: ["300", "400", "500", "600", "700", "800"],
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://bloomintel.ai'),
+  metadataBase: new URL("https://bloomintel.ai"),
   title: {
-    default: "BloomIntel - AI That Thinks Like You Do",
-    template: "%s | BloomIntel"
+    default: "BloomIntel — Enterprise AI Partner",
+    template: "%s | BloomIntel",
   },
-  description: "Transform your business with AI automation, intelligent workflows, and predictive infrastructure. Deploy AI agents that learn, adapt, and optimize operations 24/7.",
+  description:
+    "BloomIntel designs, builds, and deploys custom AI systems for enterprise operations. Governed by default, approval-gated, purpose-built for your business.",
   keywords: [
-    "AI automation",
-    "business intelligence", 
-    "process automation",
-    "predictive analytics",
-    "AI consulting",
-    "machine learning",
-    "digital transformation",
+    "enterprise AI",
     "AI agents",
-    "workflow automation",
-    "business optimization"
+    "AI consulting",
+    "business automation",
+    "AI strategy",
+    "process automation",
+    "AI governance",
+    "custom AI systems",
+    "digital transformation",
   ],
-  authors: [{ name: "BloomIntel Team" }],
+  authors: [{ name: "BloomIntel" }],
   creator: "BloomIntel",
   publisher: "BloomIntel",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://bloomintel.ai",
-    title: "BloomIntel - AI That Thinks Like You Do",
-    description: "Transform your business with AI automation, intelligent workflows, and predictive infrastructure. Deploy AI agents that learn, adapt, and optimize operations 24/7.",
+    title: "BloomIntel — Enterprise AI Partner",
+    description:
+      "Custom AI systems for enterprise operations. Built for your business, governed by design.",
     siteName: "BloomIntel",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "BloomIntel - AI Business Solutions",
-      },
-    ],
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "BloomIntel - AI That Thinks Like You Do",
-    description: "Transform your business with AI automation, intelligent workflows, and predictive infrastructure.",
-    images: ["/og-image.jpg"],
-    creator: "@bloomintel",
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
-  verification: {
-    google: 'your-google-verification-code',
-    yandex: 'your-yandex-verification-code',
-  },
-  category: 'technology',
-  classification: 'Business',
-  referrer: 'origin-when-cross-origin',
+  robots: { index: true, follow: true },
+  category: "technology",
 }
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${spaceGrotesk.variable} antialiased`}>
-      <head>
-        <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js" async />
-      </head>
-      <body className="font-sans" style={{ fontFamily: "var(--font-space-grotesk)" }}>
-        {children}
-      </body>
+    <html lang="en" className={`${inter.variable} antialiased scroll-smooth`}>
+      <body className="font-sans">{children}</body>
     </html>
   )
 }

@@ -1,83 +1,61 @@
-import Link from "next/link"
+import Image from "next/image"
+
+const links = [
+  { label: "Services",  href: "#services"  },
+  { label: "Process",   href: "#process"   },
+  { label: "About",     href: "#about"     },
+  { label: "Insights",  href: "#insights"  },
+]
 
 export function Footer() {
   return (
-    <footer className="backdrop-blur-md bg-white/5 border-t border-white/20 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="col-span-1 md:col-span-2">
-            <h3 className="text-2xl font-bold mb-4">BloomIntel</h3>
-            <p className="text-white/80 mb-4">We Build AI That Thinks Like You Do</p>
-            <div className="space-y-2">
-              <p className="text-white/80">business@bloomintelai.com</p>
-              <p className="text-white/80">909-206-2727</p>
-              <p className="text-white/80">Ontario, CA</p>
+    <footer className="border-t border-zinc-800 py-12 px-6">
+      <div className="max-w-6xl mx-auto">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-10">
+
+          {/* Brand */}
+          <div className="space-y-4">
+            <a href="#" className="flex items-center gap-2.5">
+              <Image
+                src="/bloomintel-logo.svg"
+                alt="BloomIntel"
+                width={26}
+                height={26}
+                className="drop-shadow-[0_0_6px_rgba(45,212,191,0.3)]"
+              />
+              <span className="text-sm font-bold text-white tracking-tight">
+                Bloom<span className="text-[#38bdf8]">Intel</span>
+              </span>
+            </a>
+            <p className="text-xs text-zinc-600 max-w-xs leading-relaxed">
+              Custom AI systems for enterprise operations. Built for your business,
+              governed by design, operated with your approval at every step.
+            </p>
+            <div className="flex flex-col gap-1.5">
+              <a href="mailto:business@bloomintelai.com" className="text-xs text-zinc-700 hover:text-zinc-400 transition-colors">
+                business@bloomintelai.com
+              </a>
+              <a href="tel:9092062727" className="text-xs text-zinc-700 hover:text-zinc-400 transition-colors">
+                909-206-2727
+              </a>
+              <span className="text-xs text-zinc-800">Ontario, CA</span>
             </div>
           </div>
 
-          <div>
-            <h4 className="font-semibold mb-4">Solutions</h4>
-            <ul className="space-y-2 text-white/80">
-              <li>
-                <Link href="/solutions#ai-automation" className="hover:text-white">
-                  AI Automation
-                </Link>
-              </li>
-              <li>
-                <Link href="/solutions#it-support" className="hover:text-white">
-                  IT Support
-                </Link>
-              </li>
-              <li>
-                <Link href="/solutions#analytics" className="hover:text-white">
-                  Business Analytics
-                </Link>
-              </li>
-              <li>
-                <Link href="/solutions#crm" className="hover:text-white">
-                  CRM Systems
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-semibold mb-4">Company</h4>
-            <ul className="space-y-2 text-white/80">
-              <li>
-                <Link href="/case-studies" className="hover:text-white">
-                  Case Studies
-                </Link>
-              </li>
-              <li>
-                <Link href="/pricing" className="hover:text-white">
-                  Pricing
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" className="hover:text-white">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="hover:text-white">
-                  Contact
-                </Link>
-              </li>
-            </ul>
+          {/* Nav */}
+          <div className="flex items-center gap-6">
+            {links.map((link) => (
+              <a key={link.label} href={link.href} className="text-sm text-zinc-600 hover:text-zinc-300 transition-colors">
+                {link.label}
+              </a>
+            ))}
           </div>
         </div>
 
-        <div className="border-t border-white/20 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-white/60">© 2025 BloomIntel. All rights reserved.</p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link href="/privacy" className="text-white/60 hover:text-white">
-              Privacy Policy
-            </Link>
-            <Link href="/terms" className="text-white/60 hover:text-white">
-              Terms of Service
-            </Link>
-          </div>
+        {/* Bottom */}
+        <div className="mt-10 pt-6 border-t border-zinc-800 flex flex-col md:flex-row items-center justify-between gap-3">
+          <p className="text-xs text-zinc-800">© {new Date().getFullYear()} BloomIntel, Inc. All rights reserved.</p>
+          <p className="text-xs text-zinc-800">Privacy Policy · Terms of Service</p>
         </div>
       </div>
     </footer>

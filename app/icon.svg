@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="g-teal" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#14b8a6"/>
+      <stop offset="80%" stop-color="#0ea5e9" stop-opacity="0.75"/>
+    </linearGradient>
+    <linearGradient id="g-sky" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="80%" stop-color="#6366f1" stop-opacity="0.75"/>
+    </linearGradient>
+    <linearGradient id="g-blue" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#60a5fa"/>
+      <stop offset="80%" stop-color="#7c3aed" stop-opacity="0.75"/>
+    </linearGradient>
+    <linearGradient id="g-violet" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#a78bfa"/>
+      <stop offset="80%" stop-color="#6d28d9" stop-opacity="0.75"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Back petals (diagonal) — slightly muted -->
+  <path d="M50 50 C44 44,44 28,50 20 C56 28,56 44,50 50Z" fill="url(#g-sky)" opacity="0.75" transform="rotate(45 50 50)"/>
+  <path d="M50 50 C44 44,44 28,50 20 C56 28,56 44,50 50Z" fill="url(#g-blue)" opacity="0.75" transform="rotate(135 50 50)"/>
+  <path d="M50 50 C44 44,44 28,50 20 C56 28,56 44,50 50Z" fill="url(#g-violet)" opacity="0.75" transform="rotate(225 50 50)"/>
+  <path d="M50 50 C44 44,44 28,50 20 C56 28,56 44,50 50Z" fill="url(#g-sky)" opacity="0.75" transform="rotate(315 50 50)"/>
+
+  <!-- Front petals (cardinal) — full opacity -->
+  <path d="M50 50 C44 44,44 28,50 20 C56 28,56 44,50 50Z" fill="url(#g-teal)" transform="rotate(0 50 50)"/>
+  <path d="M50 50 C44 44,44 28,50 20 C56 28,56 44,50 50Z" fill="url(#g-blue)" transform="rotate(90 50 50)"/>
+  <path d="M50 50 C44 44,44 28,50 20 C56 28,56 44,50 50Z" fill="url(#g-violet)" transform="rotate(180 50 50)"/>
+  <path d="M50 50 C44 44,44 28,50 20 C56 28,56 44,50 50Z" fill="url(#g-blue)" transform="rotate(270 50 50)"/>
+
+  <!-- Circuit traces — cardinal petals -->
+  <g stroke="rgba(255,255,255,0.55)" stroke-width="1" fill="rgba(255,255,255,0.55)" stroke-linecap="round">
+    <g transform="rotate(0 50 50)">
+      <line x1="50" y1="44" x2="50" y2="30"/>
+      <line x1="50" y1="37" x2="46.5" y2="33"/>
+      <line x1="50" y1="33" x2="53.5" y2="29.5"/>
+      <circle cx="46.5" cy="33" r="1.3"/>
+      <circle cx="53.5" cy="29.5" r="1.3"/>
+    </g>
+    <g transform="rotate(90 50 50)">
+      <line x1="50" y1="44" x2="50" y2="30"/>
+      <line x1="50" y1="37" x2="46.5" y2="33"/>
+      <line x1="50" y1="33" x2="53.5" y2="29.5"/>
+      <circle cx="46.5" cy="33" r="1.3"/>
+      <circle cx="53.5" cy="29.5" r="1.3"/>
+    </g>
+    <g transform="rotate(180 50 50)">
+      <line x1="50" y1="44" x2="50" y2="30"/>
+      <line x1="50" y1="37" x2="46.5" y2="33"/>
+      <line x1="50" y1="33" x2="53.5" y2="29.5"/>
+      <circle cx="46.5" cy="33" r="1.3"/>
+      <circle cx="53.5" cy="29.5" r="1.3"/>
+    </g>
+    <g transform="rotate(270 50 50)">
+      <line x1="50" y1="44" x2="50" y2="30"/>
+      <line x1="50" y1="37" x2="46.5" y2="33"/>
+      <line x1="50" y1="33" x2="53.5" y2="29.5"/>
+      <circle cx="46.5" cy="33" r="1.3"/>
+      <circle cx="53.5" cy="29.5" r="1.3"/>
+    </g>
+  </g>
+
+  <!-- Circuit traces — diagonal petals (simpler) -->
+  <g stroke="rgba(255,255,255,0.35)" stroke-width="0.7" fill="rgba(255,255,255,0.35)" stroke-linecap="round">
+    <g transform="rotate(45 50 50)"><line x1="50" y1="44" x2="50" y2="32"/><circle cx="50" cy="32" r="1.1"/></g>
+    <g transform="rotate(135 50 50)"><line x1="50" y1="44" x2="50" y2="32"/><circle cx="50" cy="32" r="1.1"/></g>
+    <g transform="rotate(225 50 50)"><line x1="50" y1="44" x2="50" y2="32"/><circle cx="50" cy="32" r="1.1"/></g>
+    <g transform="rotate(315 50 50)"><line x1="50" y1="44" x2="50" y2="32"/><circle cx="50" cy="32" r="1.1"/></g>
+  </g>
+
+  <!-- CPU chip body -->
+  <rect x="40" y="40" width="20" height="20" rx="2.5" fill="#f59e0b"/>
+  <!-- Chip surface -->
+  <rect x="42.5" y="42.5" width="15" height="15" rx="1.5" fill="#d97706"/>
+  <!-- Chip die -->
+  <rect x="46" y="46" width="8" height="8" rx="1" fill="#b45309"/>
+  <!-- Die cross lines -->
+  <line x1="50" y1="42.5" x2="50" y2="57.5" stroke="#92400e" stroke-width="0.6" opacity="0.6"/>
+  <line x1="42.5" y1="50" x2="57.5" y2="50" stroke="#92400e" stroke-width="0.6" opacity="0.6"/>
+  <!-- Connector pins top -->
+  <rect x="43" y="37.2" width="3" height="2.8" rx="0.6" fill="#f59e0b"/>
+  <rect x="48.5" y="37.2" width="3" height="2.8" rx="0.6" fill="#f59e0b"/>
+  <rect x="54" y="37.2" width="3" height="2.8" rx="0.6" fill="#f59e0b"/>
+  <!-- Connector pins bottom -->
+  <rect x="43" y="60" width="3" height="2.8" rx="0.6" fill="#f59e0b"/>
+  <rect x="48.5" y="60" width="3" height="2.8" rx="0.6" fill="#f59e0b"/>
+  <rect x="54" y="60" width="3" height="2.8" rx="0.6" fill="#f59e0b"/>
+  <!-- Connector pins left -->
+  <rect x="37.2" y="43" width="2.8" height="3" rx="0.6" fill="#f59e0b"/>
+  <rect x="37.2" y="48.5" width="2.8" height="3" rx="0.6" fill="#f59e0b"/>
+  <rect x="37.2" y="54" width="2.8" height="3" rx="0.6" fill="#f59e0b"/>
+  <!-- Connector pins right -->
+  <rect x="60" y="43" width="2.8" height="3" rx="0.6" fill="#f59e0b"/>
+  <rect x="60" y="48.5" width="2.8" height="3" rx="0.6" fill="#f59e0b"/>
+  <rect x="60" y="54" width="2.8" height="3" rx="0.6" fill="#f59e0b"/>
+</svg>
