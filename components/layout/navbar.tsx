@@ -41,11 +41,11 @@ export function Navbar() {
               <Image
                 src="/bloomintel-logo.svg"
                 alt="BloomIntel"
-                width={30}
-                height={30}
-                className="drop-shadow-[0_0_8px_rgba(45,212,191,0.4)]"
+                width={38}
+                height={38}
+                className="drop-shadow-[0_0_10px_rgba(45,212,191,0.5)]"
               />
-              <span className="text-[15px] font-bold text-white tracking-tight">
+              <span className="text-[16px] font-bold text-white tracking-tight">
                 Bloom<span className="text-[#38bdf8]">Intel</span>
               </span>
             </a>

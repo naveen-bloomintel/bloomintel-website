@@ -181,9 +181,19 @@ function ArticleCard({
         <h3 className={`font-bold text-white leading-snug mb-3 group-hover:text-teal-100 transition-colors ${article.featured ? "text-xl md:text-2xl" : "text-base"}`}>
           {article.title}
         </h3>
-        <p className={`text-zinc-500 leading-relaxed ${article.featured ? "text-sm" : "text-xs line-clamp-3"}`}>
-          {article.excerpt}
-        </p>
+        {article.featured ? (
+          <div className="space-y-3">
+            {article.body.slice(0, 2).map((para, i) => (
+              <p key={i} className="text-sm text-zinc-500 leading-relaxed line-clamp-4">
+                {para}
+              </p>
+            ))}
+          </div>
+        ) : (
+          <p className="text-xs text-zinc-500 leading-relaxed line-clamp-3">
+            {article.excerpt}
+          </p>
+        )}
       </div>
       <div className="px-6 py-4 border-t border-zinc-800 flex items-center justify-between">
         <div className="flex items-center gap-3">

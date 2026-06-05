@@ -19,9 +19,9 @@ export function Footer() {
               <Image
                 src="/bloomintel-logo.svg"
                 alt="BloomIntel"
-                width={26}
-                height={26}
-                className="drop-shadow-[0_0_6px_rgba(45,212,191,0.3)]"
+                width={32}
+                height={32}
+                className="drop-shadow-[0_0_8px_rgba(45,212,191,0.4)]"
               />
               <span className="text-sm font-bold text-white tracking-tight">
                 Bloom<span className="text-[#38bdf8]">Intel</span>
