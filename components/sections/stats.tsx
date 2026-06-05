@@ -15,7 +15,7 @@ export function Stats() {
   const { ref, inView } = useInView()
 
   return (
-    <section className="py-20 px-6 border-y border-zinc-800">
+    <section className="py-12 px-6 border-y border-zinc-800">
       <div
         ref={ref}
         className={`max-w-5xl mx-auto text-center reveal ${inView ? "reveal-shown" : "reveal-hidden"}`}

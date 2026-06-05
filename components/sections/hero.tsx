@@ -92,7 +92,7 @@ export function Hero() {
       </div>
 
       {/* Dashboard panel */}
-      <div className="animate-fade-up relative w-full max-w-4xl mx-auto px-6 pb-20" style={{ animationDelay: "0.55s" }}>
+      <div className="animate-fade-up relative w-full max-w-4xl mx-auto px-6 pb-8" style={{ animationDelay: "0.55s" }}>
         <div className="absolute -inset-8 bg-teal-600/[0.03] rounded-3xl blur-3xl pointer-events-none" />
 
         <div className="relative rounded-2xl border border-zinc-700 bg-zinc-900 overflow-hidden shadow-2xl">
@@ -117,15 +117,31 @@ export function Hero() {
             <div className="text-[10px] font-semibold uppercase tracking-widest text-zinc-600 mb-5">Live Activity</div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               {activity.map((item, i) => (
-                <div key={i} className="flex items-start gap-3 p-3 rounded-xl bg-zinc-800/50 border border-zinc-800">
-                  <div className="w-8 h-8 rounded-lg bg-teal-600/15 border border-teal-500/20 flex items-center justify-center flex-shrink-0">
+                <div
+                  key={i}
+                  className={`flex items-start gap-3 p-3 rounded-xl border transition-colors ${
+                    i === 0
+                      ? "bg-teal-500/[0.05] border-teal-500/20"
+                      : "bg-zinc-800/50 border-zinc-800"
+                  }`}
+                >
+                  <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 ${
+                    i === 0
+                      ? "bg-teal-600/25 border border-teal-500/30"
+                      : "bg-teal-600/15 border border-teal-500/20"
+                  }`}>
                     <item.icon className="w-4 h-4 text-teal-400" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <div className="text-xs font-medium text-zinc-300 leading-snug">{item.label}</div>
+                    <div className={`text-xs font-medium leading-snug ${i === 0 ? "text-white" : "text-zinc-300"}`}>
+                      {item.label}
+                    </div>
                     <div className="text-[11px] text-zinc-500 mt-0.5">{item.status}</div>
                   </div>
-                  <span className="text-[10px] text-zinc-600 flex-shrink-0 mt-0.5">{item.time}</span>
+                  <div className="flex items-center gap-1.5 flex-shrink-0 mt-0.5">
+                    {i === 0 && <div className="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse" />}
+                    <span className={`text-[10px] ${i === 0 ? "text-teal-500" : "text-zinc-600"}`}>{item.time}</span>
+                  </div>
                 </div>
               ))}
             </div>
