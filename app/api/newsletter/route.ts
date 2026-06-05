@@ -11,7 +11,7 @@ export async function POST(request: NextRequest) {
     const body = await request.json()
     const { email } = schema.parse(body)
 
-    if (process.env.GMAIL_USER && process.env.GMAIL_APP_PASSWORD) {
+    if (process.env.GMAIL_APP_PASSWORD) {
       const transporter = createTransport()
       await transporter.sendMail({
         from:    FROM,
@@ -33,7 +33,7 @@ export async function POST(request: NextRequest) {
       })
       console.log(`[Mail] newsletter notification sent → ${NOTIFY_EMAIL}`)
     } else {
-      console.log("[Mail] no GMAIL credentials set — skipping email:", email)
+      console.log("[Mail] no GMAIL_APP_PASSWORD set — skipping email:", email)
     }
 
     return NextResponse.json({ success: true }, { status: 200 })

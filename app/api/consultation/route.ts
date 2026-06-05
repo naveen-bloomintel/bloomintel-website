@@ -17,7 +17,7 @@ export async function POST(request: NextRequest) {
     const body = await request.json()
     const data = schema.parse(body)
 
-    if (process.env.GMAIL_USER && process.env.GMAIL_APP_PASSWORD) {
+    if (process.env.GMAIL_APP_PASSWORD) {
       const transporter = createTransport()
       await transporter.sendMail({
         from:    FROM,
@@ -44,7 +44,7 @@ export async function POST(request: NextRequest) {
       })
       console.log(`[Mail] consultation sent → ${NOTIFY_EMAIL}`)
     } else {
-      console.log("[Mail] no GMAIL credentials set — skipping email:", {
+      console.log("[Mail] no GMAIL_APP_PASSWORD set — skipping email:", {
         name: data.name, email: data.email, company: data.company,
       })
     }
