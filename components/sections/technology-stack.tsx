@@ -12,18 +12,18 @@ const services = [
     tag: "Discovery to roadmap in 2 weeks",
   },
   {
-    icon: Bot,
-    title: "Purpose-Built AI Agents",
-    description:
-      "We design each agent for a specific job — not general-purpose AI, but systems that know exactly what they are supposed to do, what data they can access, and what they must never act on autonomously. Every output goes through your approval queue before it reaches anyone.",
-    tag: "Approval-gated by default",
-  },
-  {
     icon: Zap,
     title: "Intelligent Applications",
     description:
       "Full-stack software with AI embedded at its core — built against your existing systems, databases, and APIs. Deployed in weeks, not quarters. No migration required from your current stack.",
     tag: "Production-ready in under 4 weeks",
+  },
+  {
+    icon: Bot,
+    title: "Purpose-Built AI Agents",
+    description:
+      "We design each agent for a specific job — not general-purpose AI, but systems that know exactly what they are supposed to do, what data they can access, and what they must never act on autonomously. Every output goes through your approval queue before it reaches anyone.",
+    tag: "Approval-gated by default",
   },
   {
     icon: BarChart3,
