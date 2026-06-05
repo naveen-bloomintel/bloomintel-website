@@ -92,10 +92,10 @@ export function Hero() {
       </div>
 
       {/* Dashboard panel */}
-      <div className="animate-fade-up relative w-full max-w-4xl mx-auto px-6" style={{ animationDelay: "0.55s" }}>
+      <div className="animate-fade-up relative w-full max-w-4xl mx-auto px-6 pb-20" style={{ animationDelay: "0.55s" }}>
         <div className="absolute -inset-8 bg-teal-600/[0.03] rounded-3xl blur-3xl pointer-events-none" />
 
-        <div className="relative rounded-t-2xl border border-zinc-700 border-b-0 bg-zinc-900 overflow-hidden shadow-2xl">
+        <div className="relative rounded-2xl border border-zinc-700 bg-zinc-900 overflow-hidden shadow-2xl">
           {/* Chrome bar */}
           <div className="flex items-center justify-between px-5 py-3.5 border-b border-zinc-800">
             <div className="flex items-center gap-3">
@@ -112,47 +112,22 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Body */}
-          <div className="grid grid-cols-1 md:grid-cols-5 divide-y md:divide-y-0 md:divide-x divide-zinc-800">
-            {/* Metrics */}
-            <div className="md:col-span-3 p-6">
-              <div className="text-[10px] font-semibold uppercase tracking-widest text-zinc-600 mb-5">Performance</div>
-              <div className="space-y-5">
-                {[
-                  { label: "Workflows Automated",         value: "12,847 / mo", pct: 82, color: "bg-teal-500"    },
-                  { label: "Operational Cost Reduction",  value: "−68%",        pct: 68, color: "bg-emerald-500" },
-                  { label: "Business Value vs. Baseline", value: "+312%",        pct: 95, color: "bg-sky-400"     },
-                ].map((row) => (
-                  <div key={row.label}>
-                    <div className="flex justify-between items-baseline mb-2">
-                      <span className="text-xs text-zinc-500">{row.label}</span>
-                      <span className="text-sm font-bold text-white">{row.value}</span>
-                    </div>
-                    <div className="h-[3px] w-full bg-zinc-800 rounded-full">
-                      <div className={`h-full rounded-full ${row.color}`} style={{ width: `${row.pct}%` }} />
-                    </div>
+          {/* Live Activity — full width */}
+          <div className="p-6">
+            <div className="text-[10px] font-semibold uppercase tracking-widest text-zinc-600 mb-5">Live Activity</div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              {activity.map((item, i) => (
+                <div key={i} className="flex items-start gap-3 p-3 rounded-xl bg-zinc-800/50 border border-zinc-800">
+                  <div className="w-8 h-8 rounded-lg bg-teal-600/15 border border-teal-500/20 flex items-center justify-center flex-shrink-0">
+                    <item.icon className="w-4 h-4 text-teal-400" />
                   </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Activity log */}
-            <div className="md:col-span-2 p-6">
-              <div className="text-[10px] font-semibold uppercase tracking-widest text-zinc-600 mb-5">Live Activity</div>
-              <div className="space-y-4">
-                {activity.map((item, i) => (
-                  <div key={i} className="flex items-start gap-3">
-                    <div className="w-7 h-7 rounded-lg bg-teal-600/15 border border-teal-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <item.icon className="w-3.5 h-3.5 text-teal-400" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="text-xs text-zinc-300 leading-snug truncate">{item.label}</div>
-                      <div className="text-[11px] text-zinc-600 mt-0.5">{item.status}</div>
-                    </div>
-                    <span className="text-[10px] text-zinc-700 flex-shrink-0">{item.time}</span>
+                  <div className="flex-1 min-w-0">
+                    <div className="text-xs font-medium text-zinc-300 leading-snug">{item.label}</div>
+                    <div className="text-[11px] text-zinc-500 mt-0.5">{item.status}</div>
                   </div>
-                ))}
-              </div>
+                  <span className="text-[10px] text-zinc-600 flex-shrink-0 mt-0.5">{item.time}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
