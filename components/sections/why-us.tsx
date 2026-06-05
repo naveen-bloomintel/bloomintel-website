@@ -1,6 +1,7 @@
 "use client"
 
 import { useInView } from "@/hooks/use-in-view"
+import { AnimatedRings } from "@/components/ui/animated-rings"
 
 const differentiators = [
   {
@@ -38,18 +39,22 @@ export function WhyUs() {
   const right  = useInView()
 
   return (
-    <section id="about" className="py-28 px-6 border-t border-zinc-800">
-      <div className="max-w-6xl mx-auto">
+    <section id="about" className="py-16 md:py-24 lg:py-28 px-4 sm:px-6 border-t border-zinc-800 relative overflow-hidden">
+      {/* Rings in top-right corner */}
+      <div className="absolute -top-40 -right-40 pointer-events-none opacity-40 hidden lg:block">
+        <AnimatedRings size={480} />
+      </div>
+      <div className="relative max-w-6xl mx-auto">
 
         {/* Header */}
         <div
           ref={header.ref}
-          className={`max-w-xl mb-16 reveal ${header.inView ? "reveal-shown" : "reveal-hidden"}`}
+          className={`max-w-xl mb-10 md:mb-16 reveal ${header.inView ? "reveal-shown" : "reveal-hidden"}`}
         >
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-teal-400 mb-5">Why BloomIntel</p>
           <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
             Built for the work,<br />
-            <span className="text-zinc-600 font-normal">not for the demo</span>
+            <span className="text-zinc-500 font-normal">not for the demo</span>
           </h2>
         </div>
 
@@ -63,15 +68,16 @@ export function WhyUs() {
             {differentiators.map((d, i) => (
               <div
                 key={d.title}
-                className="group p-7 bg-[#09090b] hover:bg-zinc-900 transition-colors duration-200 border-b border-zinc-800 last:border-b-0"
+                className="group relative p-7 bg-[#09090b] hover:bg-zinc-900/80 transition-all duration-300 border-b border-zinc-800 last:border-b-0 overflow-hidden cursor-default"
               >
+                <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-teal-500/0 group-hover:bg-teal-500/60 transition-all duration-300" />
                 <div className="flex items-start gap-4">
-                  <div className="w-6 h-6 rounded-full bg-teal-600/15 border border-teal-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <div className="w-6 h-6 rounded-full bg-teal-600/15 border border-teal-500/20 flex items-center justify-center flex-shrink-0 mt-0.5 transition-all duration-300 group-hover:bg-teal-600/25 group-hover:border-teal-500/50 group-hover:shadow-[0_0_10px_rgba(20,184,166,0.2)]">
                     <div className="w-1.5 h-1.5 rounded-full bg-teal-400" />
                   </div>
                   <div>
-                    <h3 className="text-sm font-semibold text-white mb-2">{d.title}</h3>
-                    <p className="text-sm text-zinc-500 leading-relaxed">{d.description}</p>
+                    <h3 className="text-sm font-semibold text-white mb-2 group-hover:text-teal-100 transition-colors duration-200">{d.title}</h3>
+                    <p className="text-sm text-zinc-400 leading-relaxed group-hover:text-zinc-300 transition-colors duration-200">{d.description}</p>
                   </div>
                 </div>
               </div>
@@ -91,17 +97,17 @@ export function WhyUs() {
               {principles.map((p, i) => (
                 <div
                   key={p.label}
-                  className={`flex gap-4 p-4 rounded-xl border border-zinc-800 bg-zinc-900 reveal ${right.inView ? "reveal-shown" : "reveal-hidden"}`}
+                  className={`group flex gap-4 p-4 rounded-xl border border-zinc-800 bg-zinc-900 hover:border-zinc-700 hover:bg-zinc-800/60 transition-all duration-300 cursor-default reveal ${right.inView ? "reveal-shown" : "reveal-hidden"}`}
                   style={{ transitionDelay: right.inView ? `${(i + 1) * 80}ms` : "0ms" }}
                 >
                   <div className="flex-shrink-0 mt-0.5">
-                    <div className="w-5 h-5 rounded-md bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center">
+                    <div className="w-5 h-5 rounded-md bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center transition-all duration-300 group-hover:bg-emerald-500/20 group-hover:border-emerald-500/40 group-hover:shadow-[0_0_8px_rgba(52,211,153,0.2)]">
                       <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
                     </div>
                   </div>
                   <div>
-                    <div className="text-xs font-bold text-white mb-1">{p.label}</div>
-                    <div className="text-xs text-zinc-500 leading-relaxed">{p.text}</div>
+                    <div className="text-xs font-bold text-white mb-1 group-hover:text-emerald-100 transition-colors duration-200">{p.label}</div>
+                    <div className="text-xs text-zinc-400 leading-relaxed group-hover:text-zinc-300 transition-colors duration-200">{p.text}</div>
                   </div>
                 </div>
               ))}
@@ -120,7 +126,7 @@ export function WhyUs() {
                 </div>
                 <div>
                   <div className="text-xs font-semibold text-white">BloomIntel Engineering Team</div>
-                  <div className="text-xs text-zinc-600">Ontario, CA</div>
+                  <div className="text-xs text-zinc-500">Ontario, CA</div>
                 </div>
               </div>
             </div>

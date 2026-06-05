@@ -9,7 +9,7 @@ const links = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-zinc-800 py-12 px-6">
+    <footer className="border-t border-zinc-800 py-10 md:py-12 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-10">
 
@@ -27,25 +27,25 @@ export function Footer() {
                 Bloom<span className="text-[#38bdf8]">Intel</span>
               </span>
             </a>
-            <p className="text-xs text-zinc-600 max-w-xs leading-relaxed">
+            <p className="text-xs text-zinc-400 max-w-xs leading-relaxed">
               Custom AI systems for enterprise operations. Built for your business,
               governed by design, operated with your approval at every step.
             </p>
             <div className="flex flex-col gap-1.5">
-              <a href="mailto:business@bloomintelai.com" className="text-xs text-zinc-700 hover:text-zinc-400 transition-colors">
+              <a href="mailto:business@bloomintelai.com" className="text-xs text-zinc-400 hover:text-teal-400 transition-colors duration-200">
                 business@bloomintelai.com
               </a>
-              <a href="tel:9092062727" className="text-xs text-zinc-700 hover:text-zinc-400 transition-colors">
+              <a href="tel:9092062727" className="text-xs text-zinc-400 hover:text-teal-400 transition-colors duration-200">
                 909-206-2727
               </a>
-              <span className="text-xs text-zinc-800">Ontario, CA</span>
+              <span className="text-xs text-zinc-500">Ontario, CA</span>
             </div>
           </div>
 
           {/* Nav */}
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
             {links.map((link) => (
-              <a key={link.label} href={link.href} className="text-sm text-zinc-600 hover:text-zinc-300 transition-colors">
+              <a key={link.label} href={link.href} className="text-sm text-zinc-400 hover:text-white transition-colors duration-200">
                 {link.label}
               </a>
             ))}
@@ -54,8 +54,12 @@ export function Footer() {
 
         {/* Bottom */}
         <div className="mt-10 pt-6 border-t border-zinc-800 flex flex-col md:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-zinc-800">© {new Date().getFullYear()} BloomIntel, Inc. All rights reserved.</p>
-          <p className="text-xs text-zinc-800">Privacy Policy · Terms of Service</p>
+          <p className="text-xs text-zinc-500">© {new Date().getFullYear()} BloomIntel, Inc. All rights reserved.</p>
+          <div className="flex items-center gap-4 text-xs text-zinc-500">
+            <a href="/privacy" className="hover:text-zinc-300 transition-colors duration-200">Privacy Policy</a>
+            <span className="text-zinc-700">·</span>
+            <a href="/terms" className="hover:text-zinc-300 transition-colors duration-200">Terms of Service</a>
+          </div>
         </div>
       </div>
     </footer>

@@ -16,7 +16,7 @@ export function Hero() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <section className="relative overflow-hidden pt-28 pb-0">
+    <section className="relative overflow-hidden pt-20 sm:pt-24 lg:pt-28 pb-0">
       {/* Background effects */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden>
         <div className="animate-orb-pulse absolute top-[-10%] left-[15%] w-[900px] h-[600px] rounded-full bg-teal-600/[0.07] blur-[160px]" />
@@ -26,8 +26,8 @@ export function Hero() {
       </div>
 
       {/* Split layout */}
-      <div className="relative max-w-6xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center py-16 lg:py-20">
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center py-10 sm:py-14 lg:py-20">
 
           {/* Left: text + CTAs */}
           <div>
@@ -65,16 +65,16 @@ export function Hero() {
               </a>
             </div>
 
-            <div className="animate-fade-up flex items-center gap-8 flex-wrap" style={{ animationDelay: "0.42s" }}>
+            <div className="animate-fade-up grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-5 sm:gap-8" style={{ animationDelay: "0.42s" }}>
               {[
                 { v: "70%",     l: "Cost reduction"    },
                 { v: "4×",      l: "Faster to scale"   },
                 { v: "300%+",   l: "Avg. ROI"          },
                 { v: "< 4 wks", l: "To first deploy"   },
               ].map((m, i) => (
-                <div key={i} className="text-center">
+                <div key={i}>
                   <div className="text-2xl font-bold text-white">{m.v}</div>
-                  <div className="text-xs text-zinc-600 mt-0.5">{m.l}</div>
+                  <div className="text-xs text-zinc-500 mt-0.5">{m.l}</div>
                 </div>
               ))}
             </div>
@@ -97,24 +97,29 @@ export function Hero() {
 
         <div className="relative rounded-2xl border border-zinc-700 bg-zinc-900 overflow-hidden shadow-2xl">
           {/* Chrome bar */}
-          <div className="flex items-center justify-between px-5 py-3.5 border-b border-zinc-800">
-            <div className="flex items-center gap-3">
-              <div className="flex gap-1.5">
-                <div className="w-3 h-3 rounded-full bg-zinc-700/80" />
-                <div className="w-3 h-3 rounded-full bg-zinc-700/80" />
-                <div className="w-3 h-3 rounded-full bg-zinc-700/80" />
+          <div className="flex items-center justify-between px-4 sm:px-5 py-3 sm:py-3.5 border-b border-zinc-800 gap-2">
+            <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+              <div className="flex gap-1.5 flex-shrink-0">
+                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-zinc-700/80" />
+                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-zinc-700/80" />
+                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-zinc-700/80" />
               </div>
-              <span className="text-xs text-zinc-500 ml-1">BloomIntel · Enterprise AI Platform</span>
+              <span className="text-xs text-zinc-500 truncate">
+                BloomIntel<span className="hidden sm:inline"> · Enterprise AI Platform</span>
+              </span>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1.5 flex-shrink-0">
               <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              <span className="text-xs text-emerald-400 font-medium">All systems operational</span>
+              <span className="text-xs text-emerald-400 font-medium whitespace-nowrap">
+                <span className="hidden sm:inline">All systems operational</span>
+                <span className="sm:hidden">Operational</span>
+              </span>
             </div>
           </div>
 
           {/* Live Activity — full width */}
           <div className="p-6">
-            <div className="text-[10px] font-semibold uppercase tracking-widest text-zinc-600 mb-5">Live Activity</div>
+            <div className="text-[10px] font-semibold uppercase tracking-widest text-zinc-500 mb-5">Live Activity</div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               {activity.map((item, i) => (
                 <div
@@ -140,7 +145,7 @@ export function Hero() {
                   </div>
                   <div className="flex items-center gap-1.5 flex-shrink-0 mt-0.5">
                     {i === 0 && <div className="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse" />}
-                    <span className={`text-[10px] ${i === 0 ? "text-teal-500" : "text-zinc-600"}`}>{item.time}</span>
+                    <span className={`text-[10px] ${i === 0 ? "text-teal-500" : "text-zinc-500"}`}>{item.time}</span>
                   </div>
                 </div>
               ))}

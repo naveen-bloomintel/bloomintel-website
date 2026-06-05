@@ -42,13 +42,13 @@ export function HowItWorks() {
   const grid   = useInView()
 
   return (
-    <section id="process" className="py-28 px-6 border-t border-zinc-800">
+    <section id="process" className="py-16 md:py-24 lg:py-28 px-4 sm:px-6 border-t border-zinc-800">
       <div className="max-w-6xl mx-auto">
 
         {/* Header */}
         <div
           ref={header.ref}
-          className={`max-w-xl mb-20 reveal ${header.inView ? "reveal-shown" : "reveal-hidden"}`}
+          className={`max-w-xl mb-12 md:mb-20 reveal ${header.inView ? "reveal-shown" : "reveal-hidden"}`}
         >
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-teal-400 mb-5">Our Process</p>
           <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
@@ -60,36 +60,36 @@ export function HowItWorks() {
         {/* Steps */}
         <div
           ref={grid.ref}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
         >
           {steps.map((step, i) => (
             <div
               key={step.step}
-              className={`relative reveal ${grid.inView ? "reveal-shown" : "reveal-hidden"}`}
+              className={`group relative p-5 rounded-2xl border border-transparent hover:border-zinc-800 hover:bg-zinc-900/50 transition-all duration-300 cursor-default reveal ${grid.inView ? "reveal-shown" : "reveal-hidden"}`}
               style={{ transitionDelay: grid.inView ? `${i * 100}ms` : "0ms" }}
             >
               {/* Connector */}
               {i < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-6 left-[calc(100%+0px)] w-full h-px bg-gradient-to-r from-white/[0.08] to-transparent -translate-x-8" />
+                <div className="hidden lg:block absolute top-[2.75rem] left-[calc(100%+0px)] w-full h-px bg-gradient-to-r from-white/[0.08] to-transparent -translate-x-8" />
               )}
 
               {/* Step number */}
               <div className="flex items-center gap-4 mb-8">
-                <span className="text-5xl font-bold text-white/[0.05] leading-none select-none">{step.step}</span>
-                <div className="h-px flex-1 bg-zinc-800" />
+                <span className="text-5xl font-bold text-zinc-700 group-hover:text-zinc-600 leading-none select-none transition-colors duration-300">{step.step}</span>
+                <div className="h-px flex-1 bg-zinc-800 group-hover:bg-teal-500/20 transition-colors duration-300" />
               </div>
 
               {/* Duration badge */}
-              <div className="inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-wider text-teal-400 bg-teal-600/10 border border-teal-500/15 rounded-full px-2.5 py-1 mb-4">
+              <div className="inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-wider text-teal-400 bg-teal-600/10 border border-teal-500/15 rounded-full px-2.5 py-1 mb-4 group-hover:bg-teal-600/20 group-hover:border-teal-500/30 transition-all duration-300">
                 {step.duration}
               </div>
 
-              <h3 className="text-lg font-semibold text-white mb-3">{step.title}</h3>
-              <p className="text-sm text-zinc-500 leading-relaxed mb-5">{step.description}</p>
+              <h3 className="text-lg font-semibold text-white mb-3 group-hover:text-teal-100 transition-colors duration-200">{step.title}</h3>
+              <p className="text-sm text-zinc-400 leading-relaxed mb-5 group-hover:text-zinc-300 transition-colors duration-200">{step.description}</p>
 
-              <div className="inline-flex items-center gap-2 rounded-full border border-zinc-800 bg-zinc-900 px-3.5 py-1.5">
+              <div className="inline-flex items-center gap-2 rounded-full border border-zinc-800 bg-zinc-900 px-3.5 py-1.5 group-hover:border-zinc-700 transition-colors duration-200">
                 <div className="w-1 h-1 rounded-full bg-emerald-400 flex-shrink-0" />
-                <span className="text-xs text-zinc-500">{step.detail}</span>
+                <span className="text-xs text-zinc-400 group-hover:text-zinc-300 transition-colors duration-200">{step.detail}</span>
               </div>
             </div>
           ))}

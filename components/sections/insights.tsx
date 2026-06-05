@@ -123,9 +123,9 @@ function ArticleModal({
             <Clock className="w-3 h-3" />
             {article.readTime} read
           </div>
-          <span className="text-zinc-700">·</span>
+          <span className="text-zinc-600">·</span>
           <span className="text-xs text-zinc-500">{article.date}</span>
-          <span className="text-zinc-700">·</span>
+          <span className="text-zinc-600">·</span>
           <span className="text-xs text-zinc-500">BloomIntel</span>
         </div>
 
@@ -140,7 +140,7 @@ function ArticleModal({
 
         {/* Footer */}
         <div className="px-6 py-4 border-t border-zinc-800 flex-shrink-0 bg-zinc-900">
-          <p className="text-xs text-zinc-600">
+          <p className="text-xs text-zinc-500">
             © 2025 BloomIntel. Published by the BloomIntel Engineering & Strategy Team.
           </p>
         </div>
@@ -165,7 +165,7 @@ function ArticleCard({
   return (
     <button
       onClick={onClick}
-      className={`group text-left flex flex-col justify-between rounded-2xl border border-zinc-800 bg-zinc-900 hover:bg-zinc-800/70 hover:border-zinc-700 transition-all duration-200 overflow-hidden cursor-pointer reveal ${inView ? "reveal-shown" : "reveal-hidden"} ${className}`}
+      className={`group text-left flex flex-col justify-between rounded-2xl border border-zinc-800 bg-zinc-900 hover:bg-zinc-800/70 hover:border-zinc-700 hover:shadow-[0_0_30px_rgba(20,184,166,0.05)] transition-all duration-300 overflow-hidden cursor-pointer reveal ${inView ? "reveal-shown" : "reveal-hidden"} ${className}`}
       style={{ transitionDelay: `${delay}ms` }}
     >
       <div className="p-6">
@@ -175,36 +175,36 @@ function ArticleCard({
             {article.category}
           </span>
           {article.featured && (
-            <span className="text-xs text-zinc-600 font-medium">Featured</span>
+            <span className="text-xs text-zinc-500 font-medium">Featured</span>
           )}
         </div>
-        <h3 className={`font-bold text-white leading-snug mb-3 group-hover:text-teal-100 transition-colors ${article.featured ? "text-xl md:text-2xl" : "text-base"}`}>
+        <h3 className={`font-bold text-white leading-snug mb-3 group-hover:text-teal-100 transition-colors duration-200 ${article.featured ? "text-xl md:text-2xl" : "text-base"}`}>
           {article.title}
         </h3>
         {article.featured ? (
           <div className="space-y-3">
             {article.body.slice(0, 2).map((para, i) => (
-              <p key={i} className="text-sm text-zinc-500 leading-relaxed line-clamp-4">
+              <p key={i} className="text-sm text-zinc-400 leading-relaxed line-clamp-4 group-hover:text-zinc-300 transition-colors duration-200">
                 {para}
               </p>
             ))}
           </div>
         ) : (
-          <p className="text-xs text-zinc-500 leading-relaxed line-clamp-3">
+          <p className="text-xs text-zinc-400 leading-relaxed line-clamp-3 group-hover:text-zinc-300 transition-colors duration-200">
             {article.excerpt}
           </p>
         )}
       </div>
-      <div className="px-6 py-4 border-t border-zinc-800 flex items-center justify-between">
+      <div className="px-6 py-4 border-t border-zinc-800 group-hover:border-zinc-700 flex items-center justify-between transition-colors duration-200">
         <div className="flex items-center gap-3">
-          <div className="flex items-center gap-1.5 text-xs text-zinc-600">
+          <div className="flex items-center gap-1.5 text-xs text-zinc-500 group-hover:text-zinc-400 transition-colors duration-200">
             <Clock className="w-3 h-3" />
             {article.readTime} read
           </div>
-          <span className="text-zinc-800">·</span>
-          <span className="text-xs text-zinc-600">{article.date}</span>
+          <span className="text-zinc-600">·</span>
+          <span className="text-xs text-zinc-500 group-hover:text-zinc-400 transition-colors duration-200">{article.date}</span>
         </div>
-        <span className="text-xs text-teal-500 font-medium opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
+        <span className="text-xs text-teal-500 font-medium opacity-0 group-hover:opacity-100 transition-all duration-200 flex items-center gap-1 translate-x-1 group-hover:translate-x-0">
           Read <ArrowRight className="w-3 h-3" />
         </span>
       </div>
@@ -238,7 +238,7 @@ function NewsletterCard({ inView }: { inView: boolean }) {
 
   return (
     <div
-      className={`lg:col-span-2 rounded-2xl border border-zinc-800 bg-zinc-900 p-6 flex flex-col justify-between reveal ${inView ? "reveal-shown" : "reveal-hidden"}`}
+      className={`sm:col-span-1 lg:col-span-2 rounded-2xl border border-zinc-800 bg-zinc-900 p-6 flex flex-col justify-between reveal ${inView ? "reveal-shown" : "reveal-hidden"}`}
       style={{ transitionDelay: "300ms" }}
     >
       <div>
@@ -292,7 +292,7 @@ function NewsletterCard({ inView }: { inView: boolean }) {
             <p className="text-xs text-red-400 mt-2">Something went wrong. Try again or email us directly.</p>
           )}
           {status === "idle" && (
-            <p className="text-xs text-zinc-700 mt-2">No spam. Unsubscribe at any time.</p>
+            <p className="text-xs text-zinc-500 mt-2">No spam. Unsubscribe at any time.</p>
           )}
         </div>
       )}
@@ -309,13 +309,13 @@ export function Insights() {
 
   return (
     <>
-      <section id="insights" className="py-28 px-6 border-t border-zinc-800/60">
+      <section id="insights" className="py-16 md:py-24 lg:py-28 px-4 sm:px-6 border-t border-zinc-800/60">
         <div className="max-w-6xl mx-auto">
 
           {/* Header */}
           <div
             ref={header.ref}
-            className={`flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14 reveal ${header.inView ? "reveal-shown" : "reveal-hidden"}`}
+            className={`flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 md:mb-14 reveal ${header.inView ? "reveal-shown" : "reveal-hidden"}`}
           >
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-teal-400 mb-4">
@@ -357,7 +357,7 @@ export function Insights() {
             </div>
 
             {/* Bottom row */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
               <ArticleCard
                 article={rest[2]}
                 onClick={() => setSelected(rest[2])}

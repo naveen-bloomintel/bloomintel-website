@@ -4,30 +4,37 @@ import { useState } from "react"
 import { ArrowRight } from "lucide-react"
 import { useInView } from "@/hooks/use-in-view"
 import { ConsultationModal } from "@/components/booking/consultation-modal"
+import { AnimatedRings } from "@/components/ui/animated-rings"
 
 export function CTABanner() {
   const [isOpen, setIsOpen] = useState(false)
   const { ref, inView }     = useInView()
 
   return (
-    <section className="py-28 px-6 border-t border-zinc-800">
+    <section className="py-16 md:py-24 lg:py-28 px-4 sm:px-6 border-t border-zinc-800 relative overflow-hidden">
+      {/* Animated rings background */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-70">
+        <AnimatedRings size={600} />
+      </div>
+
       <div
         ref={ref}
-        className={`max-w-4xl mx-auto text-center reveal ${inView ? "reveal-shown" : "reveal-hidden"}`}
+        className={`relative max-w-4xl mx-auto text-center reveal ${inView ? "reveal-shown" : "reveal-hidden"}`}
       >
         <div className="relative">
+          {/* Orb glow */}
           <div className="absolute inset-0 -z-10 flex items-center justify-center pointer-events-none">
             <div className="animate-orb-pulse w-[600px] h-[300px] rounded-full bg-teal-600/[0.07] blur-[100px]" />
           </div>
 
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-teal-400 mb-6">Get Started</p>
 
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.06] mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.06] mb-6">
             Ready to see what
             <br />custom AI can do?
           </h2>
 
-          <p className="text-lg text-zinc-500 max-w-xl mx-auto mb-10 leading-relaxed">
+          <p className="text-lg text-zinc-400 max-w-xl mx-auto mb-10 leading-relaxed">
             A 45-minute call with the engineer who would build your system.
             We'll map where AI has the highest impact in your operations — concrete, specific,
             and without obligation.
@@ -49,7 +56,7 @@ export function CTABanner() {
             </a>
           </div>
 
-          <p className="text-xs text-zinc-700">
+          <p className="text-xs text-zinc-500">
             No commitment · Response within 4 business hours · Confidential by default
           </p>
         </div>
