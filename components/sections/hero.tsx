@@ -6,10 +6,10 @@ import { ConsultationModal } from "@/components/booking/consultation-modal"
 import { WireframeGlobe } from "@/components/ui/wireframe-globe"
 
 const activity = [
-  { icon: Bot,        label: "Invoice processing agent",   status: "847 invoices cleared",    time: "just now" },
-  { icon: Zap,        label: "Approval workflow",          status: "3 decisions routed",       time: "14s ago"  },
-  { icon: Shield,     label: "Compliance audit complete",  status: "0 violations detected",    time: "1m ago"   },
-  { icon: BarChart3,  label: "Quarterly report generated", status: "Delivered to 12 leaders",  time: "4m ago"   },
+  { icon: Zap,        label: "AI application deployed",     status: "New features live in prod",  time: "just now" },
+  { icon: Bot,        label: "Invoice processing agent",    status: "847 invoices cleared",       time: "2m ago"   },
+  { icon: BarChart3,  label: "Revenue intelligence brief",  status: "Delivered to 9 executives",  time: "6m ago"   },
+  { icon: Shield,     label: "Governance audit complete",   status: "0 policy violations",        time: "11m ago"  },
 ]
 
 export function Hero() {
@@ -33,7 +33,7 @@ export function Hero() {
           <div>
             <div className="animate-fade-up inline-flex items-center gap-2 rounded-full border border-zinc-700 bg-zinc-900 px-4 py-1.5 mb-8" style={{ animationDelay: "0.05s" }}>
               <div className="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse" />
-              <span className="text-xs font-semibold tracking-widest uppercase text-zinc-400">Enterprise AI Partner</span>
+              <span className="text-xs font-semibold tracking-widest uppercase text-zinc-400">AI-Native Enterprise Solutions</span>
             </div>
 
             <h1 className="animate-fade-up text-5xl md:text-6xl lg:text-[4.5rem] font-bold tracking-tight leading-[1.03] mb-6" style={{ animationDelay: "0.12s" }}>
@@ -43,9 +43,9 @@ export function Hero() {
             </h1>
 
             <p className="animate-fade-up text-lg text-zinc-400 max-w-xl leading-relaxed mb-10" style={{ animationDelay: "0.22s" }}>
-              We design, build, and deploy custom AI agents that eliminate manual operations,
-              reduce costs, and give your enterprise a sustainable edge — governed by design,
-              not as an afterthought.
+              We partner with enterprises to design, build, and operate AI-native systems —
+              custom applications, intelligent agents, and data infrastructure that compound
+              in value as your business scales. Governed by design, not as an afterthought.
             </p>
 
             <div className="animate-fade-up flex flex-col sm:flex-row gap-3 mb-14" style={{ animationDelay: "0.32s" }}>
@@ -67,10 +67,10 @@ export function Hero() {
 
             <div className="animate-fade-up flex items-center gap-8 flex-wrap" style={{ animationDelay: "0.42s" }}>
               {[
-                { v: "70%",     l: "Cost reduction"  },
-                { v: "99.9%",   l: "Uptime SLA"       },
-                { v: "300%+",   l: "Avg. ROI"         },
-                { v: "< 4 wks", l: "To first deploy"  },
+                { v: "70%",     l: "Cost reduction"    },
+                { v: "4×",      l: "Faster to scale"   },
+                { v: "300%+",   l: "Avg. ROI"          },
+                { v: "< 4 wks", l: "To first deploy"   },
               ].map((m, i) => (
                 <div key={i} className="text-center">
                   <div className="text-2xl font-bold text-white">{m.v}</div>
@@ -104,7 +104,7 @@ export function Hero() {
                 <div className="w-3 h-3 rounded-full bg-zinc-700/80" />
                 <div className="w-3 h-3 rounded-full bg-zinc-700/80" />
               </div>
-              <span className="text-xs text-zinc-500 ml-1">BloomIntel · AI Operations Hub</span>
+              <span className="text-xs text-zinc-500 ml-1">BloomIntel · Enterprise AI Platform</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
@@ -119,9 +119,9 @@ export function Hero() {
               <div className="text-[10px] font-semibold uppercase tracking-widest text-zinc-600 mb-5">Performance</div>
               <div className="space-y-5">
                 {[
-                  { label: "Tasks Automated",            value: "12,847 / mo", pct: 82, color: "bg-teal-500"    },
+                  { label: "Workflows Automated",         value: "12,847 / mo", pct: 82, color: "bg-teal-500"    },
                   { label: "Operational Cost Reduction",  value: "−68%",        pct: 68, color: "bg-emerald-500" },
-                  { label: "ROI vs. Baseline",           value: "+312%",        pct: 95, color: "bg-sky-400"     },
+                  { label: "Business Value vs. Baseline", value: "+312%",        pct: 95, color: "bg-sky-400"     },
                 ].map((row) => (
                   <div key={row.label}>
                     <div className="flex justify-between items-baseline mb-2">

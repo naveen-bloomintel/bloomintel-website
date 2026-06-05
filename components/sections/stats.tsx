@@ -27,7 +27,7 @@ export function Stats() {
           {industries.map((name, i) => (
             <span
               key={name}
-              className="text-sm font-semibold text-zinc-700 hover:text-zinc-400 transition-colors duration-200 cursor-default select-none"
+              className="text-sm font-semibold text-zinc-500 hover:text-zinc-200 transition-colors duration-200 cursor-default select-none"
               style={{ transitionDelay: `${i * 60}ms` }}
             >
               {name}
