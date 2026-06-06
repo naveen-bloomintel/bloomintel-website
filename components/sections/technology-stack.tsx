@@ -66,8 +66,8 @@ export function TechnologyStack() {
   return (
     <section id="services" className="py-16 md:py-24 lg:py-28 px-4 sm:px-6 relative overflow-hidden">
       {/* Animated network background */}
-      <div className="absolute inset-0 pointer-events-none opacity-60 hidden lg:block">
-        <AnimatedNodes width={1400} height={900} />
+      <div className="absolute inset-0 pointer-events-none opacity-70">
+        <AnimatedNodes />
       </div>
       <div className="relative max-w-6xl mx-auto">
 

@@ -40,9 +40,13 @@ export function WhyUs() {
 
   return (
     <section id="about" className="py-16 md:py-24 lg:py-28 px-4 sm:px-6 border-t border-zinc-800 relative overflow-hidden">
-      {/* Rings in top-right corner */}
-      <div className="absolute -top-40 -right-40 pointer-events-none opacity-40 hidden lg:block">
+      {/* Rings — top-right */}
+      <div className="absolute -top-32 -right-32 pointer-events-none opacity-60">
         <AnimatedRings size={480} />
+      </div>
+      {/* Rings — bottom-left echo */}
+      <div className="absolute -bottom-32 -left-32 pointer-events-none opacity-30">
+        <AnimatedRings size={340} />
       </div>
       <div className="relative max-w-6xl mx-auto">
 
