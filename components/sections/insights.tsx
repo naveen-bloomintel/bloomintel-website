@@ -272,14 +272,14 @@ function NewsletterCard({ inView }: { inView: boolean }) {
               onChange={(e) => { setEmail(e.target.value); if (status === "error") setStatus("idle") }}
               onKeyDown={(e) => e.key === "Enter" && handleSubscribe()}
               placeholder="you@company.com"
-              className={`flex-1 h-10 rounded-lg bg-zinc-800 border text-sm text-white placeholder-zinc-600 px-4 outline-none transition-colors ${
+              className={`w-full flex-1 h-11 rounded-lg bg-zinc-800 border text-sm text-white placeholder-zinc-600 px-4 outline-none transition-colors ${
                 status === "error" ? "border-red-500/60" : "border-zinc-700 focus:border-teal-500/60"
               }`}
             />
             <button
               onClick={handleSubscribe}
               disabled={status === "loading"}
-              className="inline-flex items-center justify-center gap-2 h-10 px-5 rounded-lg bg-teal-600 hover:bg-teal-500 disabled:opacity-60 text-white text-sm font-semibold transition-colors flex-shrink-0"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 h-11 px-5 rounded-lg bg-teal-600 hover:bg-teal-500 disabled:opacity-60 text-white text-sm font-semibold transition-colors flex-shrink-0"
             >
               {status === "loading" ? (
                 <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
