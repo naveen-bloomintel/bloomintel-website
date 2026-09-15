@@ -36,7 +36,7 @@ export function CTABanner() {
 
           <p className="text-lg text-zinc-400 max-w-xl mx-auto mb-10 leading-relaxed">
             A 45-minute call with the engineer who would build your system.
-            We'll map where AI has the highest impact in your operations — concrete, specific,
+            We&apos;ll map where AI has the highest impact in your operations — concrete, specific,
             and without obligation.
           </p>
 

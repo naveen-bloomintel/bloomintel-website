@@ -19,7 +19,7 @@ export default function TermsPage() {
         <div className="space-y-10 text-sm leading-[1.9] text-zinc-400">
           <section>
             <h2 className="text-base font-semibold text-white mb-3">1. Services</h2>
-            <p>BloomIntel, Inc. ("BloomIntel," "we," "us") provides custom AI system design, development, deployment, and ongoing management services to enterprise clients. The specific scope, deliverables, timelines, and terms of any engagement are defined in a separate Statement of Work or service agreement executed between BloomIntel and the client.</p>
+            <p>BloomIntel, Inc. (&quot;BloomIntel,&quot; &quot;we,&quot; &quot;us&quot;) provides custom AI system design, development, deployment, and ongoing management services to enterprise clients. The specific scope, deliverables, timelines, and terms of any engagement are defined in a separate Statement of Work or service agreement executed between BloomIntel and the client.</p>
           </section>
 
           <section>
@@ -34,7 +34,7 @@ export default function TermsPage() {
 
           <section>
             <h2 className="text-base font-semibold text-white mb-3">4. Limitation of Liability</h2>
-            <p>BloomIntel's liability for any claim arising out of services provided shall not exceed the total fees paid by the client in the three months preceding the claim. BloomIntel is not liable for indirect, incidental, or consequential damages.</p>
+            <p>BloomIntel&apos;s liability for any claim arising out of services provided shall not exceed the total fees paid by the client in the three months preceding the claim. BloomIntel is not liable for indirect, incidental, or consequential damages.</p>
           </section>
 
           <section>

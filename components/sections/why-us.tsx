@@ -119,10 +119,10 @@ export function WhyUs() {
 
             <div className="p-6 rounded-xl border border-teal-500/15 bg-teal-600/[0.06]">
               <p className="text-sm text-zinc-300 leading-relaxed italic">
-                "Most AI tools are built for everyone, which means they are optimized for no one in particular.
+                &ldquo;Most AI tools are built for everyone, which means they are optimized for no one in particular.
                 We build AI that understands your specific operations — your terminology, your constraints,
                 your edge cases. That specificity is what makes the difference between AI that looks good in a demo
-                and AI that runs reliably in production."
+                and AI that runs reliably in production.&rdquo;
               </p>
               <div className="mt-4 flex items-center gap-3">
                 <div className="w-7 h-7 rounded-full bg-teal-600/20 border border-teal-500/30 flex items-center justify-center">

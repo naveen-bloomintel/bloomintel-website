@@ -259,8 +259,8 @@ function NewsletterCard({ inView }: { inView: boolean }) {
             <Check className="w-4 h-4" />
           </div>
           <div>
-            <div className="text-sm font-semibold">You're on the list.</div>
-            <div className="text-xs text-zinc-500 mt-0.5">We'll be in touch with our next issue.</div>
+            <div className="text-sm font-semibold">You&apos;re on the list.</div>
+            <div className="text-xs text-zinc-500 mt-0.5">We&apos;ll be in touch with our next issue.</div>
           </div>
         </div>
       ) : (

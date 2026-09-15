@@ -12,12 +12,15 @@ export function AnimatedNodes({ className = "" }: { className?: string }) {
   const stateRef     = useRef<{ nodes: Node[]; raf: number; w: number; h: number } | null>(null)
 
   useEffect(() => {
-    const container = containerRef.current
-    const canvas    = canvasRef.current
-    if (!container || !canvas) return
+    const containerEl = containerRef.current
+    const canvasEl    = canvasRef.current
+    if (!containerEl || !canvasEl) return
+    const container: HTMLDivElement = containerEl
+    const canvas: HTMLCanvasElement = canvasEl
 
-    const ctx = canvas.getContext("2d")
-    if (!ctx) return
+    const ctx2d = canvas.getContext("2d")
+    if (!ctx2d) return
+    const ctx: CanvasRenderingContext2D = ctx2d
 
     const dpr = window.devicePixelRatio || 1
     let raf = 0

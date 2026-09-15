@@ -8,8 +8,9 @@ export function AnimatedRings({ size = 500 }: { size?: number }) {
   useEffect(() => {
     const canvas = canvasRef.current
     if (!canvas) return
-    const ctx = canvas.getContext("2d")
-    if (!ctx) return
+    const ctx2d = canvas.getContext("2d")
+    if (!ctx2d) return
+    const ctx: CanvasRenderingContext2D = ctx2d
 
     const dpr = window.devicePixelRatio || 1
     canvas.width  = size * dpr

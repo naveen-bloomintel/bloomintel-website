@@ -81,7 +81,7 @@ export function TechnologyStack() {
             Every capability your enterprise needs to operate on AI
           </h2>
           <p className="text-base text-zinc-400 leading-relaxed">
-            We don't configure templates or resell SaaS subscriptions. Every system is custom-engineered
+            We don&apos;t configure templates or resell SaaS subscriptions. Every system is custom-engineered
             for how your specific business thinks, decides, and operates.
           </p>
         </div>
